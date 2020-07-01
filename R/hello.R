@@ -1,18 +1,15 @@
-# Hello, world!
-#
-# This is an example function named 'hello' 
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
-
+#' Hello
+#' 
+#' Hello description
+#' Hello description line 2
+#' 
+#' @param x,data,... as in [mosaic::mean()] or [mosaic::prop()]
+#' @param only.2 a logical indicating whether differences should only be computed
+#'   between two groups.
+#' @examples
+#' hello()
+#' }
+#' @export
 hello <- function() {
   print("Hello, world!")
 }
