@@ -18,7 +18,8 @@ LazyData: true
 Imports:
     dplyr,
     stringr,
-    tidytext
+    tidytext,
+    mosaic
 RoxygenNote: 7.1.0
 Depends: 
     R (>= 2.10)

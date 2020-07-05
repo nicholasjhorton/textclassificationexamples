@@ -1,6 +1,5 @@
-library(dplyr)
-## code to prepare `DATASET` dataset goes here
-
+library(dplyr) # data-wrangling
+library(mosaic) # sampling datasets
 
 # setting folder name
 current_folder <- getwd()
@@ -49,8 +48,45 @@ question <- read.csv(paste0(current_folder,
   select(x) %>%
   rename(phrases = x)
 
+# creating vector of words not suitable for work found within
+# clickbait headlines to filter dataset.
+
+nsfw <- c("fuck", "sex", "piss", "dominatrix",
+          "urin", "blackface", "masturba", "dick", "badass",
+          "shirtless", "hand job", "damn", "shit", "WTF", "boob",
+          "butt", "tinder", "poop", "horny", "grindr", "hell", "orgasm",
+          "cocaine", "suicid", "period underwear", "vasectom", "boner",
+          "herpes", "vagina", "ass", "nude", "abortion", "porn", "crotch",
+          "f#@k", "lube", "nipple", "pee", "condom", "sugar daddy", "lynch")
+
+# filtering out articles containing nsfw language
+articles_clean <- articles %>%
+  mutate(nsfw = str_detect(headline, regex((paste(nsfw, collapse = "|")),
+                                        ignore_case = TRUE))) %>%
+  filter(nsfw == FALSE)
+
+
+# setting seed for smaller samples
+set.seed(1999)
+
+sample_clickbait <- mosaic::sample(articles_clean %>%
+                                  filter(clickbait == TRUE),
+                                  size = 1000)
+sample_articles <- mosaic::sample(articles_clean %>%
+                                   filter(clickbait == FALSE),
+                                 size = 1000)
+
+# sample headlines n = 2000
+sample_headlines <- rbind(sample_articles, sample_clickbait) %>%
+  select(-orig.id, -nsfw)
+
+articles_clean <- articles_clean %>%
+  select(-nsfw)
+
 usethis::use_data(articles, overwrite = TRUE)
 usethis::use_data(common, overwrite = TRUE)
 usethis::use_data(exaggerated, overwrite = TRUE)
 usethis::use_data(contractions, overwrite = TRUE)
 usethis::use_data(question, overwrite = TRUE)
+usethis::use_data(sample_headlines, overwrite = TRUE)
+usethis::use_data(articles_clean, overwrite = TRUE)
