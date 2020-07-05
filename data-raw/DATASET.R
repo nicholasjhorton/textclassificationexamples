@@ -16,15 +16,41 @@ non_clickbait <- read.delim(paste0(current_folder,
 # joining
 articles <- rbind(clickbait, non_clickbait) %>%
   rename(headline = V1)
+
+# assigning unique ID to each headline
+ids <- c(1:nrow(articles))
+
+# joining with articles dataframe
+articles <- cbind(articles, ids)
+
+
+
+
 # reading in common clickbait phrases bank
-common_phrases <- read.delim(paste0(current_folder,
-                                    "/data-raw/common_phrases"),
-                             header = FALSE, sep = "\n")
+common <- read.delim(paste0(current_folder,
+                            "/data-raw/common_phrases"),
+                             header = FALSE, sep = "\n") %>%
+  rename(phrases = V1)
 # reading in exaggerated word bank
-exaggerated_phrases <- read.delim(paste0(current_folder,
-                                         "/data-raw/hyperbolic_phrases"),
-                                 header = FALSE, sep = "\n")
+exaggerated <- read.delim(paste0(current_folder,
+                                "/data-raw/hyperbolic_phrases"),
+                                header = FALSE, sep = "\n") %>%
+  rename(phrases = V1)
+
+# reading in contractions
+contractions <- read.delim(paste0(current_folder,
+                                 "/data-raw/contractions.txt"),
+                          header = FALSE, sep = "\n") %>%
+  rename(phrases = V1)
+
+# reading in question words
+question <- read.csv(paste0(current_folder,
+                                  "/data-raw/question_words.csv")) %>%
+  select(x) %>%
+  rename(phrases = x)
 
 usethis::use_data(articles, overwrite = TRUE)
-usethis::use_data(common_phrases, overwrite = TRUE)
-usethis::use_data(exaggerated_phrases, overwrite = TRUE)
+usethis::use_data(common, overwrite = TRUE)
+usethis::use_data(exaggerated, overwrite = TRUE)
+usethis::use_data(contractions, overwrite = TRUE)
+usethis::use_data(question, overwrite = TRUE)
