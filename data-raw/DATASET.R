@@ -72,12 +72,12 @@ set.seed(1999)
 sample_clickbait <- mosaic::sample(articles_clean %>%
                                   filter(clickbait == TRUE),
                                   size = 1000)
-sample_articles <- mosaic::sample(articles_clean %>%
+sample_headlines <- mosaic::sample(articles_clean %>%
                                    filter(clickbait == FALSE),
                                  size = 1000)
 
 # sample headlines n = 2000
-sample_headlines <- rbind(sample_articles, sample_clickbait) %>%
+sample_articles <- rbind(sample_headlines, sample_clickbait) %>%
   select(-orig.id, -nsfw)
 
 articles_clean <- articles_clean %>%
@@ -88,5 +88,5 @@ usethis::use_data(common, overwrite = TRUE)
 usethis::use_data(exaggerated, overwrite = TRUE)
 usethis::use_data(contractions, overwrite = TRUE)
 usethis::use_data(question, overwrite = TRUE)
-usethis::use_data(sample_headlines, overwrite = TRUE)
+usethis::use_data(sample_articles, overwrite = TRUE)
 usethis::use_data(articles_clean, overwrite = TRUE)

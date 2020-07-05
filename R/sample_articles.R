@@ -1,4 +1,4 @@
-#' Sample Headlines
+#' Sample Articles
 #'
 #' A small subset of of articles_clean. This dataset is intended to facilitate
 #' more expedient modeling/ classification within the classroom. Clickbait and
@@ -12,4 +12,4 @@
 #'   \item{ids}{Integer}
 #' }
 #' @source \url{XX}
-"sample_headlines"
+"sample_articles"

@@ -1,0 +1,39 @@
+---
+title: "Getting Started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(textclassificationexamples)
+library(ggplot2)
+library(rpart)
+```
+
+This package is intended to provide users with datasets and helper functions necessary to work through basic text classification and modeling examples.
+
+# Spam
+
+# Clickbait 
+The clickbait example lets students work through a more modern example of the Spam classification problem.
+
+The intent is to extract a variety of structural features from headlines associated with either valid news sources or clickbait articles to create a model/ classification scheme that accurately classifies headlines based on the *clickbait* variable (T/F).
+
+There are 3 available datasets for use: **articles**, **articles_clean**, and **sample_articles**. 
+
+**articles** contains the entire dataset provided by the source (see documentation for more info). **articles_clean** is a marginally smaller subset of **articles** filtered (imperfectly) for headlines with explicit language, with **sample_articles** being a 2000 row sample of this subset. **sample_articles** contains 1000 rows of clickbait articles, and 1000 rows of news headlines. This small set can be converted to a testing and training set for modeling purposes.
+
+```{r}
+head(sample_articles)
+```
+
