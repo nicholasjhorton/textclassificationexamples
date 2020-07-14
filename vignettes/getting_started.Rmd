@@ -2,7 +2,7 @@
 title: "Getting Started"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{getting-started}
+  %\VignetteIndexEntry{Getting Started}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,14 +20,14 @@ library(ggplot2)
 library(rpart)
 ```
 
-This package is intended to provide users with datasets and helper functions necessary to work through basic text classification and modeling examples.
+This package is intended to provide users with datasets and helper functions necessary to work through basic text classification and modeling examples.  The vignette provides some additional introduction and background.  
 
 # Spam
 
 The Spam example lets students work with email subject lines from a model eliciting activity that was created by Joan Garfield and colleagues at the University of Minnesota (see https://serc.carleton.edu/sp/library/mea/index.html).
 
 # Clickbait 
-The clickbait example lets students work through a different classification problem using headlines from sites known to host clickbait and legitimate news sites.
+The clickbait example lets students work through a different classification problem using headlines from sites known to host clickbait and legitimate news sites.  These headlines are derived from Kaggle (see XX).
 
 The intent is to extract a variety of structural features from headlines associated with either valid news sources or clickbait articles to create a model/ classification scheme that accurately classifies headlines based on the *clickbait* variable (TRUE/FALSE).
 
