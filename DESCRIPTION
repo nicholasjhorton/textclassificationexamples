@@ -1,18 +1,17 @@
 Package: textclassificationexamples
 Type: Package
 Title: Example Datasets and Functions for Text Classification MEAs
-Version: 0.1.0
+Version: 0.2.0
 Author: Authors@R: person("Phebe", "Palmer", email = "ppalmer21@amherst.edu",
-  role = "cre",
+  role = a("aut", "cre"),
   person("Nicholas", "Horton", email = "nhorton@amherst.edu", role = "aut"))
-Maintainer: The package maintainer <yourself@somewhere.net>
 Description: This package contains example datasets for the classification of 
     SPAM emails and clickbait headlines intended to familiarize students with 
     unstructured text data. Through utilization of functions within the package,
     students are guided to consider which structural elements of their given text
     hold relevance, and make decisions on which of these elements will ultimately 
     be used within their models.
-License: What license is it under?
+License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
 Imports:
