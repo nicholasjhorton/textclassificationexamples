@@ -1,0 +1,3 @@
+#1 remove text before 'Subject: '
+#2 remove obviously NSFW entries (for teaching purposes)
+#3 remove drek in spam lines (anything after more than 10 spaces is excluded)
